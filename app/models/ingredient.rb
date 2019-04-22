@@ -13,8 +13,16 @@ class Ingredient
     @name
   end
 
+  def set_name( new_name )
+    @name = new_name
+  end
+
   def amount
     @amount
+  end
+
+  def set_amount( new_amount )
+    @amount = new_amount
   end
 
   def done?
