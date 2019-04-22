@@ -1,16 +1,16 @@
 require "rails_helper"
 RSpec.describe Ingredient do
 
-  it "expects an Ingredient to have a name" do
-    ingredient = Ingredient.new({name: "Test Ingredient"})
-    expect(ingredient.name).to eq("Test Ingredient")
+  it "expects an Ingredient to have an ingredient" do
+    ingredient = Ingredient.new({ingredient: "Test Ingredient"})
+    expect(ingredient.ingredient).to eq("Test Ingredient")
   end
 
   it "expects an Ingredients to be able to change its name" do
-    new_name = "New Test Ingredient"
+    new_ingredient = "New Test Ingredient"
     ingredient = Ingredient.new
-    ingredient.set_name(new_name)
-    expect(ingredient.name).to eq(new_name)
+    ingredient.set_ingredient(new_ingredient)
+    expect(ingredient.ingredient).to eq(new_ingredient)
   end
 
   it "expects an Ingredient to have an amount" do
@@ -26,7 +26,7 @@ RSpec.describe Ingredient do
   end
 
   it "expects an Ingredient to be done when it has both a amount and a name" do 
-    ingredient = Ingredient.new({name: "Test Ingredient", amount: "Test oz"})
+    ingredient = Ingredient.new({ingredient: "Test Ingredient", amount: "Test oz"})
     expect(ingredient.done?).to be_truthy
   end
 

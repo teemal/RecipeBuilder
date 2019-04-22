@@ -25,7 +25,7 @@ end
 
 describe "Ingredients" do
   let (:recipe) { Recipe.new( { name: "Test Recipe" } ) }
-  let (:ingredient) { Ingredient.new( { ingredient: "Test Ingredient", amount: "1" } ) }
+  let (:ingredient) { Ingredient.new( { name: "Test Ingredient", amount: "1" } ) }
 
   it "knows that a named recipe with incomplete ingredients is not submitable" do
     recipe.ingredients << Ingredient.new

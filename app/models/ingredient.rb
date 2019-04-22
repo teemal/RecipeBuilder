@@ -2,19 +2,19 @@ class Ingredient
   DEFAULT_NAME = "Ingredient"
   DEFAULT_AMOUNT = "None"
 
-  attr_accessor :name, :amount
+  attr_accessor :ingredient, :amount
 
   def initialize(args = {})
-    @name = args.fetch(:name, DEFAULT_NAME)
+    @ingredient = args.fetch(:ingredient, DEFAULT_NAME)
     @amount = args.fetch(:amount, DEFAULT_AMOUNT)
   end
 
-  def name
-    @name
+  def ingredient
+    @ingredient
   end
 
-  def set_name( new_name )
-    @name = new_name
+  def set_ingredient( new_ingredient )
+    @ingredient = new_ingredient
   end
 
   def amount
@@ -26,7 +26,7 @@ class Ingredient
   end
 
   def done?
-    return true if @name != DEFAULT_NAME && @amount != DEFAULT_AMOUNT 
+    return true if @ingredient != DEFAULT_NAME && @amount != DEFAULT_AMOUNT 
   end
 
 end
