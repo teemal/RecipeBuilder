@@ -12,12 +12,7 @@ class Recipe
     @name
   end
 
-  def incomplete_ingredients
-    ingredients.reject(&:done?)
-  end
-
   def submitable?
-    return true if @name != DEFAULT_NAME && incomplete_ingredients.empty? && !ingredients.empty?
+    return false if @name == DEFAULT_NAME or @ingredients.empty?
   end
-
 end
