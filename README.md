@@ -22,7 +22,6 @@ Recipe Building app that allows a user to create, store, and review recipes in a
   > ```bundle install```
  
 * May need to install Node.js from https://nodejs.org/en/download/ or on Ubuntu:
-  > ```sudo apt update```
  
   >```sudo pacman -S nodejs```
  
