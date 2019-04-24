@@ -13,20 +13,8 @@ RSpec.describe Ingredient do
     expect(ingredient.ingredient).to eq(new_ingredient)
   end
 
-  it "expects an Ingredient to have an amount" do
-    ingredient = Ingredient.new({amount: "Test Quantity"})
-    expect(ingredient.amount).to eq("Test Quantity")
-  end
-
-  it "expects to be able to set amount to something new" do
-    new_amount = "New Test Amount"
-    ingredient = Ingredient.new
-    ingredient.set_amount(new_amount)
-    expect(ingredient.amount).to eq(new_amount)
-  end
-
   it "expects an Ingredient to be done when it has both a amount and a name" do 
-    ingredient = Ingredient.new({ingredient: "Test Ingredient", amount: "Test oz"})
+    ingredient = Ingredient.new({ingredient: "Test Ingredient"})
     expect(ingredient.done?).to be_truthy
   end
 

@@ -1,20 +1,10 @@
-class Recipe
+class Recipe < ApplicationRecord
+  has_many :ingredients, dependent: :destroy
+  has_many :steps, dependent: :destroy
 
-  DEFAULT_NAME = "Unamed Recipe"
-  attr_accessor :name, :ingredients, :steps
-
-  def initialize(args = {})
-    @name = args.fetch(:name, DEFAULT_NAME)
-    @ingredients = []
-    @steps = []
-  end
-  
-  def name
-    @name
-  end
 
   def set_name( new_name )
-    @name = new_name
+    self.name = new_name
   end
 
   def incomplete_ingredients
@@ -26,7 +16,7 @@ class Recipe
   end
 
   def submitable?
-    return true if @name != DEFAULT_NAME && incomplete_ingredients.empty? && incomplete_steps.empty?
+    return true if name.present? && incomplete_ingredients.empty? && incomplete_steps.empty?
   end
 
 end

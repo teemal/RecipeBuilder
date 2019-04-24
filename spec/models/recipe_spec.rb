@@ -5,11 +5,6 @@ RSpec.describe Recipe do
     expect(recipe.name).to eq("Test Recipe")
   end
 
-  it "Expects a recipe to handle an empty name" do
-    recipe = Recipe.new()
-    expect(recipe.name).to eq("Unamed Recipe")
-  end
-
   it "Expects a recipe's name to be changeable" do
     recipe = Recipe.new()
     new_name = "Test New Recipe"
@@ -25,7 +20,7 @@ end
 
 describe "Ingredients" do
   let (:recipe) { Recipe.new( { name: "Test Recipe" } ) }
-  let (:ingredient) { Ingredient.new( { ingredient: "Test Ingredient", amount: "1" } ) }
+  let (:ingredient) { Ingredient.new( { ingredient: "Test Ingredient" } ) }
 
   it "knows that a named recipe with incomplete ingredients is not submitable" do
     recipe.ingredients << Ingredient.new
@@ -48,7 +43,7 @@ describe "Steps" do
   end
 
   it "knows that a named recipe with completed or no steps is submittable" do
-    recipe.steps << Step.new( { description: "Test Step" } ) 
+    recipe.steps << Step.new( { step: "Test Step" } ) 
     expect(recipe.submitable?).to be_truthy
   end
 end
