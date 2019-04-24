@@ -2,14 +2,13 @@
 <h1> New Recipe </h1>
 <%= form_for(@recipe) do |f| %>
   <%= f.label(:name) %>
-byebug
   <%= f.text_field(:name) %>
   <br />
   <%= f.label(:ingredients) %>
-  <%= text_area_tag("project[ingredients]") %>
+  <%= text_area_tag("recipe[ingredients]") %>
   <br />
-  <%= f.label(:step) %>
-  <%= text_area_tag("project[steps]") %>
+  <%= f.label(:steps) %>
+  <%= text_area_tag("recipe[steps]") %>
   <br />
   <%= f.submit %>
 <% end %>
