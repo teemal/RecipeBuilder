@@ -7,9 +7,9 @@ Recipe Building app that allows a user to create, store, and review recipes in a
 ## Installation:
 
 * Clone repository to local machine.
-  > ssh: ```git clone git@github.com:Otis0620/Recipe-Builder.git```
+  > ssh: ```git@github.com:mwinb/RecipeBuilder.git```
  
-  > https: ```git clone https://github.com/Otis0620/Recipe-Builder.git```
+  > https: ```git clone https://github.com/mwinb/RecipeBuilder```
  
 * Install Ruby version manager (rvm) following steps at https://rvm.io/rvm/install 
 
@@ -24,7 +24,7 @@ Recipe Building app that allows a user to create, store, and review recipes in a
 * May need to install Node.js from https://nodejs.org/en/download/ or on Ubuntu:
   > ```sudo apt update```
  
-  >```sudo apt install Node.js```
+  >```sudo pacman -S nodejs```
  
 * You should now be ready to run some tests. In the root of the repository run:
   > ```rspec```
