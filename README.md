@@ -1,6 +1,6 @@
 # Recipe Builder
 
-**Created By Steven Harding and Michael Winberry**
+**Created By Michael Winberry and Myles Moylan**
  
 Recipe Building app that allows a user to create, store, and review recipes in a virtual "Rollidex"
 
