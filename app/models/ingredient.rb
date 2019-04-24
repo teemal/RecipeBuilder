@@ -1,5 +1,5 @@
 class Ingredient < ApplicationRecord
-  belongs_to :project
+  belongs_to :recipe
 
   def set_ingredient( new_ingredient )
     self.ingredient = new_ingredient

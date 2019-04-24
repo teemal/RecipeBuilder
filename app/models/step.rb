@@ -1,5 +1,5 @@
 class Step < ApplicationRecord
-  belongs_to :project
+  belongs_to :recipe
 
   def set_step( new_description )
     self.step = new_description
