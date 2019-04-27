@@ -2,8 +2,9 @@ require "rails_helper"
 
 RSpec.describe CreatesRecipe do
 
+  let(:name_string) { "Pancakes" }
   let(:creator) { CreatesRecipe.new(
-    name: "Pancakes",
+    name: name_string,
     ingredients_string: ingredients_string,
     steps_string: steps_string
   )}
@@ -16,7 +17,6 @@ RSpec.describe CreatesRecipe do
       creator.build
       expect(creator.recipe.name).to eq("Pancakes")
     end
-
   end
 
   describe "string parsing" do
@@ -55,4 +55,19 @@ RSpec.describe CreatesRecipe do
     end
   end
 
+  describe "fails" do
+    let(:name_string) { "" }
+    let(:ingredients_string) { "" }
+    let(:steps_string) { "" }
+
+    it "when trying to save a project with no name" do
+      creator = CreatesRecipe.new(
+        name: name_string,
+        ingredients_string: ingredients_string,
+        steps_string: steps_string
+      )
+      creator.create
+      expect(creator).not_to be_a_success
+    end
+  end
 end
