@@ -36,5 +36,14 @@ RSpec.describe CreatesIngredient do
       creator.create
       expect(creator).not_to be_a_success
     end
+
+    it "when acquired attribute gets something other than a boolean" do
+      creator = CreatesIngredient.new(
+        name: "Flour",
+        acquired: "..."
+      )
+      creator.build
+      expect(creator).not_to be_a_success
+    end
   end
 end

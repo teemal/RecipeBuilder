@@ -36,5 +36,14 @@ RSpec.describe CreatesStep do
       creator.create
       expect(creator).not_to be_a_success
     end
+
+    it "when completed attribute gets something other than a boolean" do
+      creator = CreatesStep.new(
+        description: "Shake and bake.",
+        completed: "..."
+      )
+      creator.create
+      expect(creator).not_to be_a_success
+    end
   end
 end
