@@ -8,8 +8,8 @@
     </thead>
     <tbody>
         <% @recipes.each do |recipe| %>
-            <tr>
-                <td><%= recipe.name %></td>
+            <tr class="recipe-row" id="<%= dom_id(recipe) %>">
+                <td class="name"><%= recipe.name %></td>
                 <td>...</td>
             </tr>
         <% end %>
