@@ -2,11 +2,6 @@ class Recipe < ApplicationRecord
   has_many :ingredients, dependent: :destroy
   has_many :steps, dependent: :destroy
 
-
-  def set_name( new_name )
-    self.name = new_name
-  end
-
   def incomplete_ingredients
     ingredients.reject(&:done?)
   end
@@ -15,8 +10,8 @@ class Recipe < ApplicationRecord
     steps.reject(&:done?)
   end
 
-  def submitable?
-    return true if name.present? && incomplete_ingredients.empty? && incomplete_steps.empty?
+  def submittable?
+    name.present? && incomplete_ingredients.empty? && incomplete_steps.empty?
   end
 
 end
