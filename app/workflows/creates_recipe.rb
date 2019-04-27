@@ -16,9 +16,14 @@ class CreatesRecipe
     recipe
   end
 
+  def success?
+    @success
+  end
+
   def create
     build
-    recipe.save
+    result = recipe.save
+    @success = result
   end
 
   def string_to_ingredients

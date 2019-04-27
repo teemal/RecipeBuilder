@@ -13,7 +13,14 @@ class RecipesController < ApplicationController
       ingredients_string: params[:recipe][:ingredients],
       steps_string: params[:recipe][:steps]
     )
+
     @workflow.create
-    redirect_to recipes_path
+
+    if @workflow.success?
+      redirect_to recipes_path
+    else
+      @recipe = @workflow.recipe
+      render :new
+    end
   end
 end
