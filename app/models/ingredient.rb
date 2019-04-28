@@ -1,5 +1,5 @@
 class Ingredient < ApplicationRecord
-  before_save :default_values
+  before_create :default_values
 
   validates :name, presence: true
   validates :amount, presence: true
