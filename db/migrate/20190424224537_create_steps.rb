@@ -3,7 +3,6 @@ class CreateSteps < ActiveRecord::Migration[5.2]
     create_table :steps do |t|
       t.references :recipe, foreign_key: true
       t.string :description
-      t.integer :number
       t.boolean :completed
 
       t.timestamps
