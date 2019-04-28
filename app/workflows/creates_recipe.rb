@@ -1,5 +1,5 @@
 class CreatesRecipe
-  attr_accessor :name, :recipe, :steps_string, :ingredients_string
+  attr_accessor :recipe, :name, :steps_string, :ingredients_string
 
   def initialize(name: "", ingredients_string: "", steps_string: "")
     @name = name
@@ -28,13 +28,13 @@ class CreatesRecipe
 
   def string_to_ingredients
     @ingredients_string.split("\n").map do |ingredient|
-      Ingredient.new(ingredient: ingredient)
+      Ingredient.new(name: ingredient)
     end
   end
 
   def string_to_steps
     @steps_string.split("\n").map do |step|
-      Step.new(step: step)
+      Step.new(description: step)
     end
   end
 

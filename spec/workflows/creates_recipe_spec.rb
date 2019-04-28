@@ -34,10 +34,10 @@ RSpec.describe CreatesRecipe do
       let(:ingredients_string) { "Stuff" }
       let(:steps_string) { "Things" }
       specify { expect(ingredients.first).to have_attributes(
-        ingredient: "Stuff"
+        name: "Stuff"
       )}
       specify { expect(steps.first).to have_attributes(
-        step: "Things"
+        description: "Things"
       )}
     end
 
@@ -45,12 +45,12 @@ RSpec.describe CreatesRecipe do
       let(:ingredients_string) { "Salt\nPepper"}
       let(:steps_string) { "Shake\nBake"}
       specify { expect(ingredients).to match(
-        [an_object_having_attributes(ingredient: "Salt"),
-         an_object_having_attributes(ingredient: "Pepper")]
+        [an_object_having_attributes(name: "Salt"),
+         an_object_having_attributes(name: "Pepper")]
       )}
       specify { expect(steps).to match(
-        [an_object_having_attributes(step: "Shake"),
-         an_object_having_attributes(step: "Bake")]
+        [an_object_having_attributes(description: "Shake"),
+         an_object_having_attributes(description: "Bake")]
       )}
     end
   end
@@ -60,7 +60,7 @@ RSpec.describe CreatesRecipe do
     let(:ingredients_string) { "" }
     let(:steps_string) { "" }
 
-    it "when trying to save a project with no name" do
+    it "when trying to save a recipe with no name" do
       creator = CreatesRecipe.new(
         name: name_string,
         ingredients_string: ingredients_string,
