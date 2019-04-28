@@ -10,8 +10,8 @@ class CreatesRecipe
   def build
     self.recipe = Recipe.new(
       name: name,
-      ingredients: string_to_ingredients,
-      steps: string_to_steps
+      ingredients: convert_ingredients_string,
+      steps: convert_steps_string
     )
     recipe
   end
@@ -26,13 +26,13 @@ class CreatesRecipe
     @success = result
   end
 
-  def string_to_ingredients
+  def convert_ingredients_string
     @ingredients_string.split("\n").map do |ingredient|
       Ingredient.new(name: ingredient)
     end
   end
 
-  def string_to_steps
+  def convert_steps_string
     @steps_string.split("\n").map do |step|
       Step.new(description: step)
     end
