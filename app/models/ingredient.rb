@@ -1,5 +1,5 @@
 class Ingredient < ApplicationRecord
-  before_create :default_values
+  after_initialize :default_values
 
   validates :name, presence: true
   validates :amount, presence: true
@@ -23,6 +23,6 @@ class Ingredient < ApplicationRecord
 
   def default_values
     self.acquired = acquired.presence || false
-    self.amount = amount.presense || 0.0
+    self.amount = amount.presence || 0.0
   end
 end

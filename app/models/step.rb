@@ -1,5 +1,5 @@
 class Step < ApplicationRecord
-  before_create :default_values
+  after_initialize :default_values
 
   validates :description, presence: true
   validates :completed, presence: true
