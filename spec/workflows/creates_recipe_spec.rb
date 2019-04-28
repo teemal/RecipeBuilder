@@ -20,8 +20,8 @@ RSpec.describe CreatesRecipe do
   end
 
   describe "string parsing" do
-    let(:ingredients) { creator.string_to_ingredients }
-    let(:steps) { creator.string_to_steps }
+    let(:ingredients) { creator.convert_ingredients_string }
+    let(:steps) { creator.convert_steps_string }
 
     describe "handles empty strings" do
       let(:ingredients_string) { "" }
