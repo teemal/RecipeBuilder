@@ -1,49 +1,56 @@
 require "rails_helper"
+
 RSpec.describe Recipe do
-  it "Expects a recipe to have a name" do
-    recipe = Recipe.new({name: "Test Recipe"})
-    expect(recipe.name).to eq("Test Recipe")
+  let(:test_name) { "Pancakes" }
+
+  describe "initialization" do
+    it "creates a recipe given a name" do
+      recipe = Recipe.new(name: test_name)
+      expect(recipe.name).to eq(test_name)
+    end
   end
 
-  it "Expects a recipe's name to be changeable" do
-    recipe = Recipe.new()
-    new_name = "Test New Recipe"
-    recipe.set_name( new_name )
+  it "expects to have a name" do
+    recipe = Recipe.new
+    expect(recipe.save).to be_falsy
+  end
+
+  it "expects the name to be changeable" do
+    new_name = "Toast"
+    recipe = Recipe.new(name: test_name)
+    recipe.name = new_name
     expect(recipe.name).to eq(new_name)
   end
 
-  it "Expects a recipe to not be submitable if the name is default" do
-    recipe = Recipe.new
-    expect(recipe).to_not be_submitable
-  end
-end
+  describe "with ingredients" do
+    let(:recipe) { Recipe.new(name: test_name) }
+    let(:ingredient) { Ingredient.new(name: "Bananas") }
 
-describe "Ingredients" do
-  let (:recipe) { Recipe.new( { name: "Test Recipe" } ) }
-  let (:ingredient) { Ingredient.new( { ingredient: "Test Ingredient" } ) }
+    it "expects that a recipe with incomplete ingredients is not submittable" do
+      recipe.ingredients << Ingredient.new
+      expect(recipe.submittable?).to be_falsy
+    end
 
-  it "knows that a named recipe with incomplete ingredients is not submitable" do
-    recipe.ingredients << Ingredient.new
-    expect(recipe.submitable?).to be_falsy
-  end
-
-  it "expects that a named recipe with no inclompete ingredients is submitable" do
-    recipe.ingredients << ingredient
-    expect(recipe.submitable?).to be_truthy
+    it "expects that a recipe with all ingredients acquired is submittable" do
+      ingredient.set_acquired
+      recipe.ingredients << ingredient
+      expect(recipe.submittable?).to be_truthy
+    end
   end
 
-end
+  describe "with steps" do
+    let(:recipe) { Recipe.new(name: test_name) }
+    let(:step) { Step.new(description: "Shake and bake.") }
 
-describe "Steps" do
-  let (:recipe) { Recipe.new( { name: "Test Recipe" } ) }
+    it "expects that a recipe with incomplete steps is not submittable" do
+      recipe.steps << step
+      expect(recipe.submittable?).to be_falsy
+    end
 
-  it "knows that a named recipe with incomplete steps is not submitable" do
-    recipe.steps << Step.new
-    expect(recipe.submitable?).to be_falsy
-  end
-
-  it "knows that a named recipe with completed or no steps is submittable" do
-    recipe.steps << Step.new( { step: "Test Step" } ) 
-    expect(recipe.submitable?).to be_truthy
+    it "expects that a recipe with all steps completed is submittable" do
+      step.set_completed
+      recipe.steps << step
+      expect(recipe.submittable?).to be_truthy
+    end
   end
 end
