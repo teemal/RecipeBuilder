@@ -9,7 +9,7 @@ class Recipe < ApplicationRecord
   end
 
   def incomplete_steps
-    steps.reject(&:complete?)
+    steps.reject(&:completed?)
   end
 
   def submittable?
