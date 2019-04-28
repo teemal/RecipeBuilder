@@ -5,15 +5,14 @@ class Recipe < ApplicationRecord
   has_many :steps, dependent: :destroy
 
   def incomplete_ingredients
-    ingredients.reject(&:done?)
+    ingredients.reject(&:acquired?)
   end
 
   def incomplete_steps
-    steps.reject(&:done?)
+    steps.reject(&:complete?)
   end
 
   def submittable?
-    name.present? && incomplete_ingredients.empty? && incomplete_steps.empty?
+    incomplete_ingredients.empty? && incomplete_steps.empty?
   end
-
 end
