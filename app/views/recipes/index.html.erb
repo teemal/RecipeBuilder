@@ -3,14 +3,12 @@
     <thead>
         <tr>
             <td>Recipe Name</td>
-            <td>...</td>
         </tr>
     </thead>
     <tbody>
         <% @recipes.each do |recipe| %>
             <tr class="recipe-row" id="<%= dom_id(recipe) %>">
                 <td class="name"><%= recipe.name %></td>
-                <td>...</td>
             </tr>
         <% end %>
     </tbody>

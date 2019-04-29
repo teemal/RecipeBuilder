@@ -17,6 +17,19 @@ RSpec.describe CreatesRecipe do
       creator.build
       expect(creator.recipe.name).to eq("Pancakes")
     end
+    it "creates a new Recipe" do
+      name_string = "Pancakes" 
+      ingredients_string = "Flour\nEgg" 
+      steps_string = "Mix\nMake" 
+      creator = CreatesRecipe.new(
+        name: name_string,
+        ingredients_string: ingredients_string,
+        steps_string: steps_string
+      )
+
+      creator.create
+      expect(creator).to be_a_success
+    end
   end
 
   describe "string parsing" do
@@ -53,6 +66,7 @@ RSpec.describe CreatesRecipe do
          an_object_having_attributes(description: "Bake")]
       )}
     end
+
   end
 
   describe "fails" do

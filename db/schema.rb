@@ -14,7 +14,9 @@ ActiveRecord::Schema.define(version: 2019_04_24_224537) do
 
   create_table "ingredients", force: :cascade do |t|
     t.integer "recipe_id"
-    t.string "ingredient"
+    t.string "name"
+    t.decimal "amount", precision: 7, scale: 1
+    t.boolean "acquired"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["recipe_id"], name: "index_ingredients_on_recipe_id"
@@ -28,7 +30,8 @@ ActiveRecord::Schema.define(version: 2019_04_24_224537) do
 
   create_table "steps", force: :cascade do |t|
     t.integer "recipe_id"
-    t.string "step"
+    t.string "description"
+    t.boolean "completed"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["recipe_id"], name: "index_steps_on_recipe_id"
