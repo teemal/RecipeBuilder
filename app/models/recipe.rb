@@ -1,5 +1,6 @@
 class Recipe < ApplicationRecord
   validates :name, presence: true
+  validates :cuisine, presence: true
 
   has_many :ingredients, dependent: :destroy
   has_many :steps, dependent: :destroy
