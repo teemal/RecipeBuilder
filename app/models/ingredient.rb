@@ -2,7 +2,6 @@ class Ingredient < ApplicationRecord
   after_initialize :default_values
 
   validates :name, presence: true
-  validates :amount, presence: true
   validates :acquired, presence: true
 
   belongs_to :recipe
@@ -23,6 +22,5 @@ class Ingredient < ApplicationRecord
 
   def default_values
     self.acquired = acquired.presence || false
-    self.amount = amount.presence || 0.0
   end
 end
