@@ -33,8 +33,8 @@ class CreatesRecipe
   end
 
   def convert_steps_string
-    @steps_string.split("\n").map do |step|
-      Step.new(description: step.strip)
+    @steps_string.split("\n").map.with_index(1) do |step, index|
+      Step.new(description: step.strip, number: index)
     end
   end
 end
