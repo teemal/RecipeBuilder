@@ -22,13 +22,6 @@ RSpec.describe Ingredient do
     expect(ingredient.name).to eq(new_ingredient)
   end
 
-  it "expects to be able to change its amount" do
-    new_amount = 100.0
-    ingredient = Ingredient.new(name: test_ingredient)
-    ingredient.amount = new_amount
-    expect(ingredient.amount).to eq(new_amount)
-  end
-
   it "expects to be able set whether or not acquired" do
     ingredient = Ingredient.new(name: test_ingredient)
     expect(ingredient.acquired?).to be_falsy
