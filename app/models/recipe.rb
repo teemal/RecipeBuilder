@@ -1,4 +1,6 @@
 class Recipe < ApplicationRecord
+  after_initialize :default_values
+
   validates :name, presence: true
   validates :cuisine, presence: true
 
@@ -15,5 +17,11 @@ class Recipe < ApplicationRecord
 
   def submittable?
     incomplete_ingredients.empty? && incomplete_steps.empty?
+  end
+
+  private
+
+  def default_values
+    self.cuisine = cuisine.presence || "Unknown"
   end
 end
