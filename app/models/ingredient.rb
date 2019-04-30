@@ -2,7 +2,6 @@ class Ingredient < ApplicationRecord
   after_initialize :default_values
 
   validates :name, presence: true
-  validates :acquired, presence: true
 
   belongs_to :recipe
 
