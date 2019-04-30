@@ -22,6 +22,18 @@ RSpec.describe Recipe do
     expect(recipe.name).to eq(new_name)
   end
 
+  it "expects cuisine to be optional" do
+    recipe = Recipe.new(name: test_name)
+    expect(recipe.save).to be_truthy
+  end
+
+  it "expects cuisine to be changeable" do
+    recipe = Recipe.new(name: test_name)
+    expect(recipe.cuisine).to eq("Unknown")
+    recipe.cuisine = "French"
+    expect(recipe.cuisine).to eq("French")
+  end
+
   describe "with ingredients" do
     let(:recipe) { Recipe.new(name: test_name) }
     let(:ingredient) { Ingredient.new(name: "Bananas") }
@@ -35,6 +47,11 @@ RSpec.describe Recipe do
       ingredient.set_acquired
       recipe.ingredients << ingredient
       expect(recipe.submittable?).to be_truthy
+    end
+
+    it "expects to be able to get a count of ingredients" do
+      recipe.ingredients << ingredient << ingredient
+      expect(recipe.ingredient_count).to eq(2)
     end
   end
 
@@ -51,6 +68,11 @@ RSpec.describe Recipe do
       step.set_completed
       recipe.steps << step
       expect(recipe.submittable?).to be_truthy
+    end
+
+    it "expects to be able to get a count of steps" do
+      recipe.steps << step << step
+      expect(recipe.step_count).to eq(2)
     end
   end
 end
