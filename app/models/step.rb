@@ -2,6 +2,7 @@ class Step < ApplicationRecord
   after_initialize :default_values
 
   validates :description, presence: true
+  validates :number, presence: true
 
   belongs_to :recipe
 
