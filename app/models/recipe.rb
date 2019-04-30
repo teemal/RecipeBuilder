@@ -8,11 +8,11 @@ class Recipe < ApplicationRecord
   has_many :steps, dependent: :destroy
 
   def ingredient_count
-    ingredients.count
+    ingredients.length
   end
 
   def step_count
-    steps.count
+    steps.length
   end
 
   def incomplete_ingredients
@@ -21,6 +21,10 @@ class Recipe < ApplicationRecord
 
   def incomplete_steps
     steps.reject(&:completed?)
+  end
+
+  def submittable?
+    incomplete_ingredients.empty? && incomplete_steps.empty?
   end
 
   private
