@@ -72,7 +72,7 @@ RSpec.describe Recipe do
 
     it "expects to be able to get a count of steps" do
       recipe.steps << step << step
-      expect(recipe.step_count).to eq(2)
+      expect(recipe).to have_num_steps(2)
     end
   end
 end
