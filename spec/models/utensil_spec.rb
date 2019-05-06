@@ -39,9 +39,4 @@ RSpec.describe "Utensil" do
     expect(utensil.completed?).to be_falsy
   end
 
-  it "expects that completed will always be false with an empty name" do
-    utensil = Utensil.new
-    utensil.set_completed
-    expect(utensil.completed?).to be_falsy
-  end
 end
