@@ -4,6 +4,7 @@ RSpec.describe "adding a recipe", type: :system do
   it "allows a user to create a recipe with name/ingredients/steps" do
     visit new_recipe_path
     fill_in "Name", with: "Pancakes"
+    fill_in "Utensils", with: "Test Pan"
     fill_in "Ingredients", with: "Flour\nEgg"
     fill_in "Steps", with: "Mix\nMake"
     click_on("Create Recipe")

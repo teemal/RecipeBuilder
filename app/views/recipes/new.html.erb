@@ -3,6 +3,9 @@
   <%= f.label(:name) %>
   <%= f.text_field(:name) %>
   <br />
+  <%= f.label(:utensils) %>
+  <%= text_area_tag("recipe[utensils]") %>
+  <br />
   <%= f.label(:ingredients) %>
   <%= text_area_tag("recipe[ingredients]") %>
   <br />
