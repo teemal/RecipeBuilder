@@ -11,7 +11,8 @@ class RecipesController < ApplicationController
     @workflow = CreatesRecipe.new(
       name: params[:recipe][:name],
       ingredients_string: params[:recipe][:ingredients],
-      steps_string: params[:recipe][:steps]
+      steps_string: params[:recipe][:steps],
+      utensils_string: params[:recipe][:utensils]
     )
 
     @workflow.create
