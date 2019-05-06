@@ -22,12 +22,26 @@ RSpec.describe "Utensil" do
     expect(utensil.name).to eq(new_utensil)
   end
 
+  it "expects initial completeness to be false" do
+    utensil = Utensil.new
+    expect(utensil.completed?).to be_falsy
+  end
+
   it "expects to be able to set completion status" do
     utensil = Utensil.new(name: test_utensil)
-    expect(utensil.completed?).to be_falsy
     utensil.set_completed
     expect(utensil.completed?).to be_truthy
+  end
+
+  it "expects to be able to unset completion status" do
+    utensil = Utensil.new( {name: test_utensil, completed: true})
     utensil.unset_completed
+    expect(utensil.completed?).to be_falsy
+  end
+
+  it "expects that completed will always be false with an empty name" do
+    utensil = Utensil.new
+    utensil.set_completed
     expect(utensil.completed?).to be_falsy
   end
 end

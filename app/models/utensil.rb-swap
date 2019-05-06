@@ -5,7 +5,6 @@ class Utensil
 
   def initialize(options = {})
     @name = options.fetch(:name, "")
-    @completed = options.fetch(:completed, false)
   end
 
   def completed?
