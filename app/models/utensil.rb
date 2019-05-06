@@ -1,22 +1,23 @@
-class Utensil < ApplicationRecord
+class Utensil 
 
-  validates :name, presence: true
+  attr_accessor :name, :completed
 
-  belongs_to :recipe
+
+  def initialize(options = {})
+    @name = options.fetch(:name, "")
+  end
 
   def completed?
+    return false if @name == ""
     completed
   end
 
   def set_completed
-    self.completed = true
+    @completed = true
   end
 
   def unset_completed
-    self.completed = false
+    @completed = false
   end
 
-  private
-    self.completed = completed.presence || false
-  end
 end
