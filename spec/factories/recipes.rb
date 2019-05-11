@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :recipe do
-    name "Recipe Name"
-    cuisine "Recipe Cuisine"
+    name { '' }
+    cuisine { 'Default Cuisine' }
   end
 end
