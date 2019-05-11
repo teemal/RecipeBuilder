@@ -3,3 +3,4 @@ spec/examples.txt
 log/
 .byebug_history
 *.lock
+db/*.sqlite3
