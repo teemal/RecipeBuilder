@@ -39,8 +39,8 @@ RSpec.describe Recipe do
 
   describe "with ingredients" do
     let(:recipe) { FactoryBot.build(:recipe, 
-                                            name: test_name,
-                                            cuisine: test_cuisine) }
+                                    name: test_name,
+                                    cuisine: test_cuisine) }
     let(:complete_ingredient) { FactoryBot.build(:complete_ingredient) }
     let(:incomplete_ingredient) { FactoryBot.build(:incomplete_ingredient) }
 
@@ -59,26 +59,27 @@ RSpec.describe Recipe do
       expect(recipe.ingredient_count).to eq(2)
     end
   end
-  /
+
   describe "with steps" do
-    let(:recipe) { Recipe.new(name: test_name) }
-    let(:step) { Step.new(description: "Shake and bake.") }
+    let(:recipe) { FactoryBot.build(:recipe, 
+                                    name: test_name,
+                                    cuisine: test_cuisine) }
+    let(:complete_step) { FactoryBot.build(:complete_step) }
+    let(:incomplete_step) { FactoryBot.build(:incomplete_step) }
 
     it "expects that a recipe with incomplete steps is not submittable" do
-      recipe.steps << step
+      recipe.steps << incomplete_step
       expect(recipe.submittable?).to be_falsy
     end
 
     it "expects that a recipe with all steps completed is submittable" do
-      step.set_completed
-      recipe.steps << step
+      recipe.steps << complete_step
       expect(recipe.submittable?).to be_truthy
     end
 
     it "expects to be able to get a count of steps" do
-      recipe.steps << step << step
-      expect(recipe).to have_num_steps(2)
+      recipe.steps << complete_step << incomplete_step
+      expect(recipe.step_count).to eq(2)
     end
   end
-  /
 end
