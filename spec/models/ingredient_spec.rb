@@ -16,23 +16,25 @@ RSpec.describe Ingredient do
       expect(ingredient_without_name.valid?).to be_falsy
     end
   end
-/
+
   describe "mutation" do
+    let(:recipe) { FactoryBot.build_stubbed(:recipe) }
+    let(:complete_ingredient) { FactoryBot.build_stubbed(:complete_ingredient) }
+    let(:incomplete_ingredient) { FactoryBot.build_stubbed(:incomplete_ingredient) }
+
     it "expects to be able to change its name" do
+      expect(complete_ingredient.name).to eq('Complete Ingredient')
       new_ingredient = "Sugar"
-      ingredient = Ingredient.new(name: test_ingredient)
-      ingredient.name = new_ingredient
-      expect(ingredient.name).to eq(new_ingredient)
+      complete_ingredient.name = new_ingredient
+      expect(complete_ingredient.name).to eq(new_ingredient)
     end
   
     it "expects to be able set whether or not acquired" do
-      ingredient = Ingredient.new(name: test_ingredient)
-      expect(ingredient.acquired?).to be_falsy
-      ingredient.set_acquired
-      expect(ingredient.acquired?).to be_truthy
-      ingredient.unset_acquired
-      expect(ingredient.acquired?).to be_falsy
+      expect(incomplete_ingredient.acquired?).to be_falsy
+      incomplete_ingredient.set_acquired
+      expect(incomplete_ingredient.acquired?).to be_truthy
+      incomplete_ingredient.unset_acquired
+      expect(incomplete_ingredient.acquired?).to be_falsy
     end
   end
-  /
 end
