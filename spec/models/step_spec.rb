@@ -1,11 +1,14 @@
 require "rails_helper"
 
 RSpec.describe "Step" do
-  let(:test_step) { "Shake and bake." }
+
+  let(:test_step) { "Shake and Bake" }
+  let(:step) { FactoryBot.build_stubbed(:step) }
 
   describe "initialization" do
+
     it "creates a step given a description" do
-      step = Step.new(description: test_step)
+      test_step = "Shake and Bake"
       expect(step.description).to eq(test_step)
     end
   end
@@ -17,13 +20,11 @@ RSpec.describe "Step" do
 
   it "expects to be able to change its description" do
     new_step = "Bake and shake."
-    step = Step.new(description: new_step)
     step.description = new_step
     expect(step.description).to eq(new_step)
   end
 
   it "expects to be able to set whether or not completed" do
-    step = Step.new(description: test_step)
     expect(step.completed?).to be_falsy
     step.set_completed
     expect(step.completed?).to be_truthy
