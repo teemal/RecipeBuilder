@@ -6,6 +6,10 @@ class Utensil < ApplicationRecord
   belongs_to :recipe
 
 
+  def perform(big_dependency)
+    big_dependency.execute
+    return 42
+  end
   def completed?
     completed
   end
