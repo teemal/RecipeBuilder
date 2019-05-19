@@ -38,4 +38,14 @@ RSpec.describe "Utensil" do
     expect(utensil.completed?).to be_falsy
   end
 
+  it "expects to be able to perfrom" do
+    result = utensil.perform(BigDependency.new)
+    expect(result).to eq(42)
+  end
+
+  it "expects to be able to perfrom with a fake" do
+    result = utensil.perform(FakeBigDependency.new)
+    expect(result).to eq(42)
+  end
+
 end

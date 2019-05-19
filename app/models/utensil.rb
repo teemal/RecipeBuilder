@@ -10,6 +10,7 @@ class Utensil < ApplicationRecord
     big_dependency.execute
     return 42
   end
+
   def completed?
     completed
   end
