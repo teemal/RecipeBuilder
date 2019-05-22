@@ -15,6 +15,11 @@ RSpec.describe Recipe do
     it "fails if not given a name" do
       expect(recipe_without_name.valid?).to be_falsy
     end
+
+    it "fails if creating a recipe that is already stored with same name" do
+      //
+    end
+
   end
 
   describe "mutation" do
@@ -82,4 +87,5 @@ RSpec.describe Recipe do
       expect(recipe.step_count).to eq(2)
     end
   end
+
 end
