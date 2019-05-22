@@ -6,6 +6,7 @@ RSpec.describe Recipe do
 
   describe "initialization" do
     let(:recipe_with_name) { FactoryBot.build_stubbed(:recipe, name: :test_name) }
+    let(:recipe_with_same_name) { FactoryBot.build_stubbed(:recipe, name: :test_name) }
     let(:recipe_without_name) { FactoryBot.build_stubbed(:recipe) }
 
     it "creates a recipe given a name" do
@@ -17,7 +18,7 @@ RSpec.describe Recipe do
     end
 
     it "fails if creating a recipe that is already stored with same name" do
-      //
+      #TODO
     end
 
   end
