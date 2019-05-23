@@ -17,11 +17,6 @@ RSpec.describe Recipe do
       expect(recipe_without_name.valid?).to be_falsy
     end
 
-    it "fails if creating a recipe that is already stored with same name" do
-      expect(recipe_with_name.name).to eq(recipe_with_same_name.name)
-      #TODO make test fail. having the same named recipes should cause an error which does not currently happen
-    end
-
   end
 
   describe "mutation" do

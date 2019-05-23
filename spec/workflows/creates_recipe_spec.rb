@@ -30,6 +30,27 @@ RSpec.describe CreatesRecipe do
       creator.create
       expect(creator).to be_a_success
     end
+
+    it "fails if creating a recipe that is already stored with same name" do
+      name_string = "Pancakes" 
+      ingredients_string = "Flour\nEgg" 
+      steps_string = "Mix\nMake" 
+      recipe = CreatesRecipe.new(
+        name: name_string,
+        ingredients_string: ingredients_string,
+        steps_string: steps_string
+      )
+      recipe_with_same_name = CreatesRecipe.new(
+        name: name_string,
+        ingredients_string: ingredients_string,
+        steps_string: steps_string
+      )
+
+      recipe.create
+      recipe_with_same_name.create
+      expect(recipe_with_same_name).to raise_error
+    end
+
   end
 
   describe "string parsing" do
