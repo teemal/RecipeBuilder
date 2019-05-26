@@ -37,4 +37,23 @@ RSpec.describe Ingredient do
       expect(incomplete_ingredient.acquired?).to be_falsy
     end
   end
+
+  describe "amount tests" do
+    let(:complete_ingredient) {FactoryBot.build_stubbed(:ingredient, name: "Fake ingredient", amount: 50) }
+    it "checks if an amount is present" do
+      expect(complete_ingredient.amount).to eq(50)
+    end
+
+    it "expects a name is true and an amount to be true" do
+      expect(complete_ingredient.name).to be_truthy
+      expect(complete_ingredient.amount).to be_truthy
+    end
+
+    it "expects to be able tot change its amount" do
+      expect(complete_ingredient.amount).to eq(50)
+      new_amount = 15
+      complete_ingredient.amount = new_amount
+      expect(complete_ingredient.amount).to eq(new_amount)
+    end
+  end
 end
