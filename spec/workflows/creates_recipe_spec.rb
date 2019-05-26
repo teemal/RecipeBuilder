@@ -47,8 +47,7 @@ RSpec.describe CreatesRecipe do
       )
 
       recipe.create
-      recipe_with_same_name.create
-      expect(recipe_with_same_name).to raise_error
+      refute recipe_with_same_name.create
     end
 
   end
