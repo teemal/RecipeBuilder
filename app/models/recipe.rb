@@ -7,7 +7,7 @@ class Recipe < ApplicationRecord
   has_many :ingredients, dependent: :destroy
   has_many :steps, dependent: :destroy
   has_many :utensils, dependent: :destroy
-  has_many :cuisines
+  has_one :cuisines
 
   def ingredient_count
     ingredients.length

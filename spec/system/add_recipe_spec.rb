@@ -7,6 +7,7 @@ RSpec.describe "adding a recipe", type: :system do
     fill_in "Utensils", with: "Test Pan"
     fill_in "Ingredients", with: "Flour\nEgg"
     fill_in "Steps", with: "Mix\nMake"
+    fill_in "Cuisine", with: "American"
     click_on("Create Recipe")
     visit recipes_path
     @recipe = Recipe.find_by(name: "Pancakes")

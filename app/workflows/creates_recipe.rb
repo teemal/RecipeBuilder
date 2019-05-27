@@ -1,11 +1,12 @@
 class CreatesRecipe
-  attr_accessor :recipe, :name, :steps_string, :ingredients_string, :utensils_string
+  attr_accessor :recipe, :name, :steps_string, :ingredients_string, :utensils_string, :cuisine_string
 
   def initialize(name: "", ingredients_string: "", steps_string: "", utensils_string: "")
     @name = name
     @ingredients_string = ingredients_string
     @steps_string = steps_string
     @utensils_string = utensils_string
+    @cuisine_string = cuisine_string
   end
 
   def build
@@ -13,7 +14,8 @@ class CreatesRecipe
       name: @name,
       ingredients: convert_ingredients_string,
       steps: convert_steps_string,
-      utensils: convert_utensils_string
+      utensils: convert_utensils_string,
+      cuisine: cuisine_string
     )
     recipe
   end
@@ -45,4 +47,5 @@ class CreatesRecipe
       Utensil.new(name: utensil.strip)
     end
   end
+
 end
