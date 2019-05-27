@@ -7,6 +7,7 @@ class Recipe < ApplicationRecord
   has_many :ingredients, dependent: :destroy
   has_many :steps, dependent: :destroy
   has_many :utensils, dependent: :destroy
+  has_many :cuisines
 
   def ingredient_count
     ingredients.length
@@ -39,6 +40,6 @@ class Recipe < ApplicationRecord
   private
 
   def default_values
-    self.cuisine = cuisine.presence || "Unknown"
+    self.cuisine = cuisine.presence || "unknown"
   end
 end
