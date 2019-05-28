@@ -1,14 +1,16 @@
 class CreatesIngredient
-  attr_accessor :ingredient, :name, :acquired
+  attr_accessor :ingredient, :name, :acquired, :amount
 
-  def initialize(name: "", acquired: false)
+  def initialize(name: "", amount: nil, acquired: false)
     @name = name
+    @amount = amount
     @acquired = acquired
   end
 
   def build
     self.ingredient = Ingredient.new(
       name: name,
+      amount: amount,
       acquired: acquired
     )
     ingredient
@@ -16,7 +18,8 @@ class CreatesIngredient
 
   def build_with_acquired_default
     self.ingredient = Ingredient.new(
-      name: name
+      name: name,
+      amount: amount
     )
     ingredient
   end
