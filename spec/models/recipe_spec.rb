@@ -40,49 +40,49 @@ RSpec.describe Recipe do
   end
 
   describe "with ingredients" do
-    let(:recipe) { FactoryBot.build(:recipe, 
-                                    name: test_name,
-                                    cuisine: test_cuisine) }
-    let(:complete_ingredient) { FactoryBot.build(:complete_ingredient) }
-    let(:incomplete_ingredient) { FactoryBot.build(:incomplete_ingredient) }
+  #   let(:recipe) { FactoryBot.build(:recipe, 
+  #                                   name: test_name,
+  #                                   cuisine: test_cuisine) }
+  #   let(:complete_ingredient) { FactoryBot.build(:complete_ingredient) }
+  #   let(:incomplete_ingredient) { FactoryBot.build(:incomplete_ingredient) }
 
-    it "expects that a recipe with incomplete ingredients is not submittable" do
-      recipe.ingredients << incomplete_ingredient
-      expect(recipe.submittable?).to be_falsy
-    end
+  #   it "expects that a recipe with incomplete ingredients is not submittable" do
+  #     recipe.ingredients << incomplete_ingredient
+  #     expect(recipe.submittable?).to be_falsy
+  #   end
 
-    it "expects that a recipe with all ingredients acquired is submittable" do
-      recipe.ingredients << complete_ingredient
-      expect(recipe.submittable?).to be_truthy
-    end
+  #   it "expects that a recipe with all ingredients acquired is submittable" do
+  #     recipe.ingredients << complete_ingredient
+  #     expect(recipe.submittable?).to be_truthy
+  #   end
 
-    it "expects to be able to get a count of ingredients" do
-      recipe.ingredients << complete_ingredient << incomplete_ingredient
-      expect(recipe.ingredient_count).to eq(2)
-    end
-  end
+  #   it "expects to be able to get a count of ingredients" do
+  #     recipe.ingredients << complete_ingredient << incomplete_ingredient
+  #     expect(recipe.ingredient_count).to eq(2)
+  #   end
+  # end
 
-  describe "with steps" do
-    let(:recipe) { FactoryBot.build(:recipe, 
-                                    name: test_name,
-                                    cuisine: test_cuisine) }
-    let(:complete_step) { FactoryBot.build(:complete_step) }
-    let(:incomplete_step) { FactoryBot.build(:incomplete_step) }
+  # describe "with steps" do
+  #   let(:recipe) { FactoryBot.build(:recipe, 
+  #                                   name: test_name,
+  #                                   cuisine: test_cuisine) }
+  #   let(:complete_step) { FactoryBot.build(:complete_step) }
+  #   let(:incomplete_step) { FactoryBot.build(:incomplete_step) }
 
-    it "expects that a recipe with incomplete steps is not submittable" do
-      recipe.steps << incomplete_step
-      expect(recipe.submittable?).to be_falsy
-    end
+  #   it "expects that a recipe with incomplete steps is not submittable" do
+  #     recipe.steps << incomplete_step
+  #     expect(recipe.submittable?).to be_falsy
+  #   end
 
-    it "expects that a recipe with all steps completed is submittable" do
-      recipe.steps << complete_step
-      expect(recipe.submittable?).to be_truthy
-    end
+  #   it "expects that a recipe with all steps completed is submittable" do
+  #     recipe.steps << complete_step
+  #     expect(recipe.submittable?).to be_truthy
+  #   end
 
-    it "expects to be able to get a count of steps" do
-      recipe.steps << complete_step << incomplete_step << complete_step
-      expect(recipe.step_count).to eq(3)
-    end
-  end
+  #   it "expects to be able to get a count of steps" do
+  #     recipe.steps << complete_step << incomplete_step << complete_step
+  #     expect(recipe.step_count).to eq(3)
+  #   end
+   end
 
 end

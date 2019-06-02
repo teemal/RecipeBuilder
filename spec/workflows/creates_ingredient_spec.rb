@@ -17,15 +17,15 @@ RSpec.describe CreatesIngredient do
       expect(creator.ingredient.name).to eq("Flour")
     end
 
-    it "creates an ingredient given an amount" do
-      creator.build
-      expect(creator.ingredient.amount).to eq(2)
-    end
+    # it "creates an ingredient given an amount" do
+    #   creator.build
+    #   expect(creator.ingredient.amount).to eq(2)
+    # end
 
-    it "defaults acquired attribute to false" do
-      creator.build_with_acquired_default
-      expect(creator.ingredient.acquired?).to be_falsy
-    end
+    # it "defaults acquired attribute to false" do
+    #   creator.build_with_acquired_default
+    #   expect(creator.ingredient.acquired?).to be_falsy
+    # end
 
     it "allows setting of aquired attribute" do
       creator.build

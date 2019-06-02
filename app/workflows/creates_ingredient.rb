@@ -10,19 +10,19 @@ class CreatesIngredient
   def build
     self.ingredient = Ingredient.new(
       name: name,
-      amount: amount,
+      #amount: amount,
       acquired: acquired
     )
     ingredient
   end
 
-  def build_with_acquired_default
-    self.ingredient = Ingredient.new(
-      name: name,
-      amount: amount
-    )
-    ingredient
-  end
+  # def build_with_acquired_default
+  #   self.ingredient = Ingredient.new(
+  #     name: name,
+  #     #amount: amount
+  #   )
+  #   ingredient
+  # end
 
   def success?
     @success

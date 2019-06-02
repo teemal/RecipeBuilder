@@ -4,10 +4,11 @@ class Recipe < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   validates :cuisine, presence: true
 
-  has_many :ingredients, dependent: :destroy
+  has_many :measurements
+  has_many :ingredients, dependent: :destroy, through: :measurements
   has_many :steps, dependent: :destroy
   has_many :utensils, dependent: :destroy
-  has_one :cuisines
+  
 
   def ingredient_count
     ingredients.length
