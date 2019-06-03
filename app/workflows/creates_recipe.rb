@@ -29,6 +29,7 @@ class CreatesRecipe
   def create
     build
     result = recipe.save
+    #byebug
     @success = result
   end
 
