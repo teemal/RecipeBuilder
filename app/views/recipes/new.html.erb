@@ -8,12 +8,17 @@
   <br />
   <%= f.label(:ingredients) %>
   <%= text_area_tag("recipe[ingredients]") %>
+  <%= f.label(:ingredients, 'Amount(s)') %>
+  <%= text_area_tag("ingredients[amount]") %>
   <br />
   <%= f.label(:steps) %>
   <%= text_area_tag("recipe[steps]") %>
   <br />
   <%= f.label(:cuisine) %>
   <%= text_area_tag("recipe[cuisine]") %>
+  <br />
+  <%= f.label(:recipe, 'Time') %>
+
   <br />
   <%= f.submit %>
 <% end %>

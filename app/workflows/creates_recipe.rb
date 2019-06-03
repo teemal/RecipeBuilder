@@ -1,5 +1,5 @@
 class CreatesRecipe
-  attr_accessor :recipe, :name, :steps_string, :ingredients_string, :utensils_string, :cuisine_string, :time
+  attr_accessor :recipe, :name, :steps_string, :ingredients_string, :utensils_string, :cuisine_string
 
   def initialize(name: "", ingredients_string: "", steps_string: "", utensils_string: "", time: "")
     @name = name
@@ -7,7 +7,6 @@ class CreatesRecipe
     @steps_string = steps_string
     @utensils_string = utensils_string
     @cuisine_string = cuisine_string
-    @time = time
   end
 
   def build
@@ -17,7 +16,7 @@ class CreatesRecipe
       steps: convert_steps_string,
       utensils: convert_utensils_string,
       cuisine: cuisine_string,
-      time: time
+      #time: time
     )
     recipe
   end
