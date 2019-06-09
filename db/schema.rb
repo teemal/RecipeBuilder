@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2019_06_01_224230) do
     t.boolean "acquired"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "amount"
     t.index ["recipe_id"], name: "index_ingredients_on_recipe_id"
   end
 

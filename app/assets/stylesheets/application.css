@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+.index-add {
+    color: red;
+    background-color: #262626;
+    width: 500px;
+    height: 100px;
+}
